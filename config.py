@@ -6,7 +6,7 @@ BOT_TOKEN = environ.get("BOT_TOKEN", "7107488581:AAFAq0temUKSCH2Ou7RE5n9bfRt4HoV
 
 # Make Bot Admin In Log Channel With Full Rights
 LOG_CHANNEL = int(environ.get("LOG_CHANNEL", "-1002523462080"))
-ADMINS = list(map(int, getenv("ADMINS", "").split()))
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
 OWNER_ID = environ.get("OWNER_ID","https://t.me/BotMaster55") # Yaha owner link do with https://
 JOIN_CHANNEL = environ.get("JOIN_CHANNEL","-1002523462080") # Yaha channel link do with https://t.me
 UPDATE_CHANNEL = environ.get("UPDATE_CHANNEL","-1002523462080") # With https://
