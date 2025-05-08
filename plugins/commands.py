@@ -12,9 +12,7 @@ Nᴀᴍᴇ - {}</b>
 """
 
 @Client.on_message(filters.command('start'))
-async def start_message(c,m):
-    c = client
-    m = message 
+async def start_message(c: client ,m: message):
     if not await db.is_user_exist(m.from_user.id):
         await db.add_user(m.from_user.id, m.from_user.first_name)
         await c.send_message(LOG_CHANNEL, LOG_TEXT.format(m.from_user.id, m.from_user.mention))
