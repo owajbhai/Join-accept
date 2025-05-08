@@ -1,6 +1,6 @@
 import asyncio 
 from pyrogram import Client, filters, enums
-from config import *
+from config import UPDATE_CHANNEL, OWNER_ID, JOIN_CHANNEL, LOG_CHANNEL
 from plugins.database import db
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
@@ -12,7 +12,7 @@ Nᴀᴍᴇ - {}</b>
 """
 
 @Client.on_message(filters.command('start'))
-async def start_message(Client ,Message):
+async def start_message(client ,message):
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id, message.from_user.first_name)
         await client.send_message(LOG_CHANNEL, LOG_TEXT.format(message.from_user.id, message.from_user.mention))
