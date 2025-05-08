@@ -1,6 +1,6 @@
 import asyncio 
 from pyrogram import Client, filters, enums
-from config import UPDATE_CHANNEL, OWNER_ID, JOIN_CHANNEL, LOG_CHANNEL
+from config import UPDATE_CHANNEL, OWNER_ID, JOIN_CHANNEL, LOG_CHANNEL, NEW_REQ_MODE, API_ID, API_HASH
 from plugins.database import db
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
